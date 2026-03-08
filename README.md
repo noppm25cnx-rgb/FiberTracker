@@ -1,5 +1,5 @@
 # FiberTracker
-
+Track your daily fiber intake easily
 Simple tool to track daily fiber intake.
 
 Features
