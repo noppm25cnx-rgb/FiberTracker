@@ -1109,5 +1109,36 @@ function doExport(){
 .exp-tab.on{background:var(--bg3);color:var(--tx);box-shadow:0 2px 6px rgba(0,0,0,.25)}
 </style>
 
+<script>
+function doExport(){
+
+let table = document.querySelector("table");
+let rows = table.querySelectorAll("tr");
+
+let csv=[];
+
+rows.forEach(row=>{
+let cols=row.querySelectorAll("td,th");
+let data=[];
+
+cols.forEach(col=>{
+data.push(col.innerText);
+});
+
+csv.push(data.join(","));
+});
+
+let csvFile = csv.join("\n");
+
+let blob = new Blob([csvFile],{type:"text/csv"});
+let link=document.createElement("a");
+
+link.download="fiber-data.csv";
+link.href=window.URL.createObjectURL(blob);
+
+link.click();
+}
+</script>
+  
 </body>
 </html>
